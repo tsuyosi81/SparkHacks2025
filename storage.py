@@ -20,8 +20,8 @@ CREATE TABLE IF NOT EXISTS orders (
 ''')
 
 orders = [
-    (1, 'Alice', 'Bob', 'Widget', 9.99, datetime.now().isoformat()),
-    (2, 'Charlie', 'Dana', 'Gadget', 19.99, datetime.now().isoformat())
+    (1, 'Alice', 'Bob', 'Widget', 9.99, datetime.datetime.now().isoformat()),
+    (2, 'Charlie', 'Dana', 'Gadget', 19.99, datetime.datetime.now().isoformat())
 ]
 
 cursor.executemany('INSERT OR REPLACE INTO orders VALUES (?, ?, ?, ?, ?, ?)', orders)
