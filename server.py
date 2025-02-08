@@ -91,34 +91,47 @@ def seller_table_number(number,name):
     
 @app.post('/seller/<name>/table/<number>')
 def update_order(name, number):
-    cursor = get_db().cursor()
+    conn = get_db()
+    cursor = conn.cursor()
     cursor.execute('SELECT * FROM orders WHERE Order_id = ?', (number,))
-    print('got post')
     print(request.form.to_dict())
     order = cursor.fetchone()
     To_Update = []
 
     params = []
 
-    if request.form['new_buyer']:
+    if "new_buyer" in request.form.keys():
         print("there is a new buyer")
         To_Update.append("Buyer = ?")
         params.append(request.form['new_buyer'])
-        
-    if not To_Update:
-        print("No fields provided for update.")
-        return False
+
+    if "new_amount" in request.form.keys():
+        To_Update.append("Amount = ?")
+        params.append(request.form['new_amount'])
+    
+    if "new_product" in request.form.keys():
+        print("there is a new product")
+        To_Update.append("Product = ?")
+        params.append(request.form['new_product'])
+
+    if "new_price" in request.form.keys():
+        To_Update.append("Price = ?")
+        price_string = str(float(request.form['new_price']))
+        params.append(f"${float(price_string+"0000"):.2f}")
+
+    print("done with if statements")
     
     To_Update.append("Time = ?")
     params.append(datetime.now().isoformat())
-
     params.append(number)
-    print(To_Update)
     print(params)
     sql = f"UPDATE orders SET {', '.join(To_Update)} WHERE Order_id = ?"
-
+    print(sql, params)
     cursor.execute(sql, params)
-    
+    cursor.execute('SELECT * FROM orders WHERE Order_id = ?', (number,))
+    print(cursor.fetchone())
+
+    conn.commit()
     target = f'/seller/{name}/table/{number}'
     return redirect(target)
 
