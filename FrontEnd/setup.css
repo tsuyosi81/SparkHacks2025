@@ -302,3 +302,88 @@
 .btn-continue:hover {
     background: var(--darker);
 }
+
+/* Create Order Page Styles */
+.create-order-wrapper {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.create-order-wrapper h1 {
+    font-size: 2rem;
+    color: var(--darker);
+    margin-bottom: 10px;
+}
+
+.create-order-wrapper p {
+    font-size: 1rem;
+    color: rgb(100, 100, 100);
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--darker);
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 2px solid var(--lighter);
+    border-radius: 5px;
+    outline: none;
+    transition: 200ms ease;
+}
+
+.form-control:focus {
+    border-color: var(--primary);
+}
+
+.order-summary {
+    margin-top: 20px;
+    padding: 20px;
+    border: 2px solid var(--lighter);
+    border-radius: 10px;
+    text-align: left;
+}
+
+.order-summary h3 {
+    font-size: 1.5rem;
+    color: var(--darker);
+    margin-bottom: 10px;
+}
+
+.order-summary p {
+    font-size: 1rem;
+    color: rgb(100, 100, 100);
+    margin-bottom: 5px;
+}
+
+.btn-place-order {
+    width: 100%;
+    padding: 15px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 6px;
+    border: none;
+    background: var(--primary);
+    color: var(--white);
+    cursor: pointer;
+    transition: 200ms linear;
+    margin-top: 20px;
+}
+
+.btn-place-order:hover {
+    background: var(--darker);
+}
