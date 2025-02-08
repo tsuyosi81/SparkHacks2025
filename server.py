@@ -1,8 +1,8 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect, url_for
 from flask import g
 import sqlite3
 from datetime import datetime
-import storage
+# import storage
 
 conn = sqlite3.connect("orders.db")
 cursor = conn.cursor()
@@ -56,7 +56,7 @@ def home():
 def seller_product(name):
     return "<h1>"
 
-@app.route('/seller/<name>/table')
+@app.route('/seller/<name>/table') #:)
 def seller_table(name):
     cursor = get_db().cursor()
     cursor.execute('SELECT * FROM orders WHERE Seller = ?', (name,))
@@ -70,22 +70,62 @@ def seller_table(name):
             "order_id": row[0],
             "seller": row[1],
             "buyer": row[2],
-            "product": row[3],
-            "price": row[4],
-            "time": row[5]
+            "amount":row[3],
+            "product": row[4],
+            "price": row[5],
+            "time": row[6]
         })
     return render_template("table.html",orders=orders_list)
     
-@app.route('/seller/<name>/table/<number>')
+@app.get('/seller/<name>/table/<number>')       #:|
 def seller_table_number(number,name):
     cursor = get_db().cursor()
     cursor.execute('SELECT * FROM orders WHERE Order_id = ?', (number,))
-    order = cursor.fetchone()
-    if order:
-        return render_template("hello.html",order=order)
+    idorder = cursor.fetchone()
+    print(idorder)
+    if idorder:
+        return render_template("hello.html",order=idorder)
     else:
         print("Order not found.")
         return render_template("notfound.html")
+    
+@app.post('/seller/<name>/table/<number>')
+def update_order(name, number):
+    cursor = get_db().cursor()
+    cursor.execute('SELECT * FROM orders WHERE Order_id = ?', (number,))
+    print('got post')
+    print(request.form.to_dict())
+    order = cursor.fetchone()
+    To_Update = []
+
+    params = []
+
+    if request.form['new_buyer']:
+        print("there is a new buyer")
+        To_Update.append("Buyer = ?")
+        params.append(request.form['new_buyer'])
+        
+    if not To_Update:
+        print("No fields provided for update.")
+        return False
+    
+    To_Update.append("Time = ?")
+    params.append(datetime.now().isoformat())
+
+    params.append(number)
+    print(To_Update)
+    print(params)
+    sql = f"UPDATE orders SET {', '.join(To_Update)} WHERE Order_id = ?"
+
+    cursor.execute(sql, params)
+    
+    target = f'/seller/{name}/table/{number}'
+    return redirect(target)
+
+@app.route('/seller/<name>/products/')
+def edit_products(name):
+    pass
+
 
 conn.close()
 
