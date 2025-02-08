@@ -12,6 +12,7 @@ CREATE TABLE IF NOT EXISTS orders (
     Order_id INTEGER PRIMARY KEY,
     Seller TEXT NOT NULL,
     Buyer TEXT NOT NULL,
+    Amount INT NOT NULL,
     Product TEXT NOT NULL,
     Price REAL NOT NULL,
     Time TEXT NOT NULL
@@ -22,13 +23,13 @@ CREATE TABLE IF NOT EXISTS orders (
 
 # ##################
 orders = [
-    (1, 'Alice', 'Bob', 'Widget', 9.99, datetime.datetime.now().isoformat()),
-    (3, 'Alice', 'Bruce', 'Project', 99.99, datetime.datetime.now().isoformat()),
-    (2, 'Charlie', 'Dana', 'Gadget', 19.99, datetime.datetime.now().isoformat())
+    (1, 'Alice', 'Bob', 3,'Widget', 9.99, datetime.datetime.now().isoformat()),
+    (3, 'Alice', 'Bruce', 1, 'Project', 99.99, datetime.datetime.now().isoformat()),
+    (2, 'Charlie', 'Dana', 5,'Gadget', 19.99, datetime.datetime.now().isoformat())
 ]
 ####################
 
-cursor.executemany('INSERT OR REPLACE INTO orders VALUES (?, ?, ?, ?, ?, ?)', orders)
+cursor.executemany('INSERT OR REPLACE INTO orders VALUES (?, ?, ?, ?, ?, ?, ?)', orders)
 
 
 conn.commit()
@@ -191,34 +192,35 @@ if __name__ == "__main__":
             "order_id": row[0],
             "seller": row[1],
             "buyer": row[2],
-            "product": row[3],
-            "price": row[4],
-            "time": row[5]
+            "amount":row[3],
+            "product": row[4],
+            "price": row[5],
+            "time": row[6]
         })
 
         # #####################################
 
-    oder_id_check = create_new_order("Alice", "Eve", "NewWidget", 15.99)
+    # oder_id_check = create_new_order("Alice", "Eve", "NewWidget", 15.99)
 
-    update_order(oder_id_check, "Alice", new_product="SuperWidget", new_price=17.99)
+    # update_order(oder_id_check, "Alice", new_product="SuperWidget", new_price=17.99)
 
 
-    order_details = request_order_by_id(oder_id_check)
-    print("\nDetails of the updated order:")
-    print(order_details)
+    # order_details = request_order_by_id(oder_id_check)
+    # print("\nDetails of the updated order:")
+    # print(order_details)
     
-    print("\nOrders for seller Alice ")
-    seller_orders = request_orders_by_seller("Alice")
-    for order in seller_orders:
-        print(order)
+    # print("\nOrders for seller Alice ")
+    # seller_orders = request_orders_by_seller("Alice")
+    # for order in seller_orders:
+    #     print(order)
     
     
-    delete_order(oder_id_check, "Alice")
+    # delete_order(oder_id_check, "Alice")
     
-    print("\nOrders for seller 'Alice' after deletion:")
-    seller_orders = request_orders_by_seller("Alice")
-    for order in seller_orders:
-        print(order)
+    # print("\nOrders for seller 'Alice' after deletion:")
+    # seller_orders = request_orders_by_seller("Alice")
+    # for order in seller_orders:
+    #     print(order)
 
         # ##################################################
     

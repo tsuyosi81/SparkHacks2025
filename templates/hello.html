@@ -18,6 +18,7 @@
         <tr>
             <th>Order ID</th>
             <th>Buyer</th>
+            <th>Amount</th>
             <th>Product</th>
             <th>Price</th>
             <th>Time Stamp</th>
@@ -28,14 +29,15 @@
             <td>{{ order[3] }}</td>
             <td>{{ order[4] }}</td>
             <td>{{ order[5] }}</td>
+            <td>{{ order[6] }}</td>
         </tr>
     </table>
     <div>
         <button id="edit-buyer">EDIT BUYER</button>
     </div>
-    <div id="extra">
-        
-    </div>
+    <form id="extra" method="post" url="/">
+
+    </form>
     <script src="/static/single.js"></script>
 </body>
 </html>
