@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="setup.css">
+    <title>Order Sync - Channel Selection</title>
+</head>
+<body>
+
+    <main class="main-wrapper">
+        <div class="steps-wrapper">
+            <!-- Progress Steps -->
+            <div class="steps">
+                <div class="step-container">
+                    <span class="step">1</span>
+                    <p class="step-text">Set Up Business</p>
+                </div>
+                <div class="step-container">
+                    <span class="step active">2</span>
+                    <p class="step-text">Sync Channels</p>
+                </div>
+                <div class="step-container">
+                    <span class="step">3</span>
+                    <p class="step-text">Done</p>
+                </div>
+                <div class="progress-bar">
+                    <span class="progress" style="width: 50%;"></span>
+                </div>
+            </div>
+
+            <!-- Channel Selection Section -->
+            <div class="channel-selection">
+                <h2>Select Channels to Sync</h2>
+                <p>Choose the platforms you want to connect to your dashboard.</p>
+
+                <!-- First Row of Channels -->
+                <div class="channel-row">
+                    <div class="channel-card" data-channel="Amazon">
+                        <img src="https://cdn-icons-png.flaticon.com/512/731/731985.png" alt="Amazon">
+                        <p>Amazon</p>
+                    </div>
+                    <div class="channel-card" data-channel="Shopify">
+                        <img src="https://cdn-icons-png.flaticon.com/512/731/731973.png" alt="Shopify">
+                        <p>Shopify</p>
+                    </div>
+                    <div class="channel-card" data-channel="Etsy">
+                        <img src="https://cdn-icons-png.flaticon.com/512/731/731987.png" alt="Etsy">
+                        <p>Etsy</p>
+                    </div>
+                </div>
+
+                <!-- Second Row of Channels -->
+                <div class="channel-row">
+                    <div class="channel-card" data-channel="Wix">
+                        <img src="https://cdn-icons-png.flaticon.com/512/731/731988.png" alt="Wix">
+                        <p>Wix</p>
+                    </div>
+                    <div class="channel-card" data-channel="Instagram">
+                        <img src="https://cdn-icons-png.flaticon.com/512/731/731989.png" alt="Instagram">
+                        <p>Instagram</p>
+                    </div>
+                    <div class="channel-card" data-channel="eBay">
+                        <img src="https://cdn-icons-png.flaticon.com/512/731/731990.png" alt="eBay">
+                        <p>eBay</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation Buttons -->
+            <div class="buttons">
+                <button class="btn btn-prev" id="btn-prev">Previous</button>
+                <button class="btn btn-next" id="btn-next">Next</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="setup.js"></script>
+</body>
+</html>

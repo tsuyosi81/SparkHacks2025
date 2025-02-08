@@ -1,0 +1,304 @@
+:root {
+    font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+        "Segoe UI Emoji", "Segoe UI Symbol";
+    line-height: 1.5;
+    font-weight: 400;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    --primary: #2a5d82;
+    --white: #fff;
+    --black: #000;
+    --darker: color-mix(in oklab, var(--primary), var(--black, #000) 15%);
+    --lighter: color-mix(in oklab, var(--primary), var(--white, #fff) 20%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main-wrapper {
+    height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.steps-wrapper {
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.steps {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    width: 100%;
+    /* padding: 0 25px; Add padding to prevent clipping */
+}
+
+.step-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    width: 33%;
+}
+
+/* Step circles */
+.step {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 4px solid rgb(222, 222, 222);
+    border-radius: 50%;
+    color: rgb(135, 135, 135);
+    background: rgb(255, 255, 255);
+    font-size: 24px;
+    font-weight: 600;
+    transition: 200ms ease;
+    z-index: 2;
+}
+
+.step.active {
+    color: var(--primary);
+    border-color: var(--primary);
+}
+
+/* Step text */
+.step-text {
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: rgb(100, 100, 100);
+}
+
+/* Progress bar */
+.progress-bar {
+    position: absolute;
+    top: 50%;
+    left: 12%;
+    width: 76%;
+    height: 4px;
+    background: rgb(222, 222, 222);
+    z-index: 1;
+    transform: translateY(-50%);
+}
+
+.progress {
+    height: 100%;
+    background: var(--primary);
+    transition: 300ms ease;
+}
+
+.business-setup {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.business-setup label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--darker);
+}
+
+.business-setup input {
+    width: 100%;
+    max-width: 350px;
+    padding: 10px;
+    font-size: 1rem;
+    border: 2px solid var(--lighter);
+    border-radius: 5px;
+    outline: none;
+    text-align: center;
+    transition: 200ms ease;
+}
+
+.business-setup input:focus {
+    border-color: var(--primary);
+}
+
+.buttons {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.btn {
+    padding: 10px 15px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 6px;
+    border: none;
+    background: var(--primary);
+    color: var(--white);
+    cursor: pointer;
+    transition: 200ms linear;
+}
+
+.btn:active {
+    scale: 0.9;
+}
+
+.btn:hover:not(:disabled) {
+    background: var(--darker);
+}
+
+.btn:disabled {
+    cursor: not-allowed;
+    background: var(--lighter);
+    pointer-events: none;
+}
+
+/* Add this to your existing CSS */
+.business-type {
+    width: 100%;
+    max-width: 350px;
+    padding: 10px;
+    font-size: 1rem;
+    border: 2px solid var(--lighter);
+    border-radius: 5px;
+    outline: none;
+    text-align: center;
+    transition: 200ms ease;
+    background-color: var(--white);
+    color: var(--darker);
+    cursor: pointer;
+}
+
+.business-type:focus {
+    border-color: var(--primary);
+}
+
+.business-type option {
+    text-align: center;
+    background-color: var(--white);
+    color: var(--darker);
+}
+
+
+
+
+/* Channel Selection Section */
+.channel-selection {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.channel-selection h2 {
+    font-size: 1.5rem;
+    color: var(--darker);
+    margin-bottom: 10px;
+}
+
+.channel-selection p {
+    font-size: 1rem;
+    color: rgb(100, 100, 100);
+    margin-bottom: 20px;
+}
+
+.channel-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.channel-card {
+    flex: 1;
+    padding: 20px;
+    border: 2px solid var(--lighter);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.channel-card img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.channel-card p {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--darker);
+}
+
+.channel-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.channel-card.selected {
+    border-color: var(--primary);
+    background-color: color-mix(in oklab, var(--primary), var(--white) 90%);
+}
+
+
+
+
+/* Completion Section */
+.completion-section {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.checkmark {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+    animation: bounce 1s ease-in-out;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.completion-section h2 {
+    font-size: 2rem;
+    color: var(--darker);
+    margin-bottom: 10px;
+}
+
+.completion-section p {
+    font-size: 1rem;
+    color: rgb(100, 100, 100);
+    margin-bottom: 20px;
+}
+
+.btn-continue {
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 6px;
+    border: none;
+    background: var(--primary);
+    color: var(--white);
+    cursor: pointer;
+    transition: 200ms linear;
+}
+
+.btn-continue:hover {
+    background: var(--darker);
+}
