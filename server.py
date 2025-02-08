@@ -1,4 +1,8 @@
 from flask import Flask, render_template
+import sqlite3
+from datetime import datetime
+import storage
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -20,6 +24,10 @@ def buyer():
 @app.route('/seller')
 def seller():
     return "<h1>seller</h1>"
+
+@app.route('/seller/product')
+def seller_product():
+    return "<h1>"
 
 @app.route('/seller/table')
 def seller_table():
