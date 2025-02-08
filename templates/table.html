@@ -3,37 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        table, th, td {
-            border: 1px solid black;
-            border-collapse: collapse;
-        }
-    </style>
+    <link rel="stylesheet" href="../FrontEnd/home.css">
+    <link rel="stylesheet" href="../FrontEnd/setup.css">
+    <link rel="stylesheet" href="table.css"> <!-- Link to the new table.css -->
+    <title>Order Sync - Orders Table</title>
 </head>
 <body>
-    <table>
-        <tr>
-            <th>Order ID</th>
-            <th>Buyer</th>
-            <th>Amount</th>
-            <th>Product</th>
-            <th>Price</th>
-            <th>Time Stamp</th>
-            <th>View Individual Order</th>
-        </tr>
-        {% for order in orders %}
-            <tr>
-                <td>{{ order.order_id }}</td>
-                <td>{{ order.buyer }}</td>
-                <td>{{ order.amount }}</td>
-                <td>{{ order.product }}</td>
-                <td>{{ order.price }}</td>
-                <td>{{ order.time }}</td>
-                <td><a href="/seller/{{ order.seller }}/table/{{ order.order_id }}">view order</a></td>
-            </tr>
-        {% endfor %}
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="logo">[brand]</div>
+        <div class="nav-links">
+            <a href="../FrontEnd/home.html" class="active">Home</a>
+            <a href="#about-us">About Us</a>
+            <a href="#why-us">What We Do & Why</a>
+            <a href="../FrontEnd/createOrder.html">Create Order</a>
+            <a href="#">FAQs</a>
+        </div>
+        <button class="contact-btn">Contact us</button>
+        <button class="mobile-menu-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
 
-    </table>
+    <!-- Table Section -->
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>Buyer</th>
+                    <th>Amount</th>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Time Stamp</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for order in orders %}
+                    <tr>
+                        <td>{{ order.order_id }}</td>
+                        <td>{{ order.buyer }}</td>
+                        <td>{{ order.amount }}</td>
+                        <td>{{ order.product }}</td>
+                        <td>{{ order.price }}</td>
+                        <td>{{ order.time }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <script src="table.js"></script>
 </body>
 </html>

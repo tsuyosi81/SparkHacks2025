@@ -23,6 +23,7 @@ body {
   padding: 1rem 2rem;
   background: var(--light);
   position: relative;
+  position: sticky;
 }
 
 .logo {
