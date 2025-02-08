@@ -1,1 +1,28 @@
-<h1> order  # {{ order }}</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>order  # {{ order.order_id }}</h1>
+
+    <table>
+        <tr>
+            <th>Order ID</th>
+            <th>Buyer</th>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Time Stamp</th>
+        </tr>
+        <tr>
+            <td>{{ order.order_id }}</td>
+            <td>{{ order.buyer }}</td>
+            <td>{{ order.product }}</td>
+            <td>{{ order.price }}</td>
+            <td>{{ order.time }}</td>
+        </tr>
+    </table>
+</body>
+</html>

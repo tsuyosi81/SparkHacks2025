@@ -23,6 +23,7 @@ CREATE TABLE IF NOT EXISTS orders (
 # ##################
 orders = [
     (1, 'Alice', 'Bob', 'Widget', 9.99, datetime.datetime.now().isoformat()),
+    (3, 'Alice', 'Bruce', 'Project', 99.99, datetime.datetime.now().isoformat()),
     (2, 'Charlie', 'Dana', 'Gadget', 19.99, datetime.datetime.now().isoformat())
 ]
 ####################
