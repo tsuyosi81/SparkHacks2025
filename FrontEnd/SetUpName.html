@@ -4,10 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="setup.css">
+    <link rel="stylesheet" href="home.css">
     <title>Business Setup</title>
 </head>
 <body>
+<!-- Navigation Bar -->
+<nav class="navbar">
+    <div class="logo">Order Sync</div>
+    <div class="nav-links">
+        <a href="home.html" class="active">Home</a>
+        <a href="#about-us">About Us</a>
+        <a href="#why-us">What We Do & Why</a>
+        <a href="#">FAQs</a>
+    </div>
+    <button class="contact-btn">Contact us</button>
+    <button class="mobile-menu-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+</nav>
 
+<!-- Mobile Menu -->
+<div class="mobile-menu">
+    <a href="#" class="active">Home</a>
+    <a href="#about-us">About Us</a>
+    <a href="#why-us">What We Do & Why</a>
+    <a href="#">FAQs</a>
+    <button class="contact-btn">Contact us</button>
+</div>
     <main class="main-wrapper">
         <div class="steps-wrapper">
             <div class="steps">
@@ -17,7 +42,7 @@
                 </div>
                 <div class="step-container">
                     <span class="step">2</span>
-                    <p class="step-text">Sync Channels</p>
+                    <p class="step-text">Choose Category</p>
                 </div>
                 <div class="step-container">
                     <span class="step">3</span>
@@ -35,8 +60,9 @@
             </div>
 
             <div class="buttons">
-                <button class="btn btn-prev" id="btn-prev" disabled>Previous</button>
-                <a href="SetUpCategory.html"><button class="btn btn-next" id="btn-next">Next</button></a>
+                <a href="SetUpCategory.html">
+                    <button class="btn btn-next" id="btn-next">Next</button>
+                </a>
             </div>
         </div>
     </main>

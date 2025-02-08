@@ -4,10 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="setup.css">
+    <link rel="stylesheet" href="home.css">
     <title>Order Sync - Setup Complete</title>
 </head>
 <body>
+<!-- Navigation Bar -->
+<nav class="navbar">
+    <div class="logo">Order Sync</div>
+    <div class="nav-links">
+        <a href="home.html" class="active">Home</a>
+        <a href="#about-us">About Us</a>
+        <a href="#why-us">What We Do & Why</a>
+        <a href="#">FAQs</a>
+    </div>
+    <button class="contact-btn">Contact us</button>
+    <button class="mobile-menu-btn">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+</nav>
 
+<!-- Mobile Menu -->
+<div class="mobile-menu">
+    <a href="#" class="active">Home</a>
+    <a href="#about-us">About Us</a>
+    <a href="#why-us">What We Do & Why</a>
+    <a href="#">FAQs</a>
+    <button class="contact-btn">Contact us</button>
+</div>
     <main class="main-wrapper">
         <div class="steps-wrapper">
             <!-- Progress Steps -->
@@ -18,7 +43,7 @@
                 </div>
                 <div class="step-container">
                     <span class="step">2</span>
-                    <p class="step-text">Sync Channels</p>
+                    <p class="step-text">Choose Category</p>
                 </div>
                 <div class="step-container">
                     <span class="step active">3</span>
@@ -33,8 +58,14 @@
             <div class="completion-section">
                 <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" alt="Checkmark" class="checkmark">
                 <h2>Done</h2>
-                <p>You're officially registered and ready to start your journey with your new business.</p>
-                <button class="btn btn-continue" id="btn-continue">Continue</button>
+                <p>You're officially registered and ready to start your journey with your new business.</p><div class="buttons">
+                    <a href="SetUpCategory.html">
+                        <button class="btn btn-prev" id="btn-prev">Previous</button>
+                    </a>
+                    <a href="table.html">
+                        <button class="btn btn-continue" id="btn-continue">Continue</button>
+                    </a>
+                </div>
             </div>
         </div>
     </main>
