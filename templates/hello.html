@@ -4,9 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
 </head>
 <body>
-    <h1>order  # {{ order.order_id }}</h1>
+    <h1>order  # {{ order[0] }}</h1>
 
     <table>
         <tr>
@@ -17,12 +23,19 @@
             <th>Time Stamp</th>
         </tr>
         <tr>
-            <td>{{ order.order_id }}</td>
-            <td>{{ order.buyer }}</td>
-            <td>{{ order.product }}</td>
-            <td>{{ order.price }}</td>
-            <td>{{ order.time }}</td>
+            <td>{{ order[0] }}</td>
+            <td>{{ order[2] }}</td>
+            <td>{{ order[3] }}</td>
+            <td>{{ order[4] }}</td>
+            <td>{{ order[5] }}</td>
         </tr>
     </table>
+    <div>
+        <button id="edit-buyer">EDIT BUYER</button>
+    </div>
+    <div id="extra">
+        
+    </div>
+    <script src="/static/single.js"></script>
 </body>
 </html>
