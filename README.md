@@ -6,5 +6,3 @@
 - Cris
 - Krish
 - Kevin
-
-hehehehehe
