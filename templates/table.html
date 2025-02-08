@@ -20,6 +20,7 @@
             <th>Product</th>
             <th>Price</th>
             <th>Time Stamp</th>
+            <th>View Individual Order</th>
         </tr>
         {% for order in orders %}
             <tr>
@@ -29,6 +30,7 @@
                 <td>{{ order.product }}</td>
                 <td>{{ order.price }}</td>
                 <td>{{ order.time }}</td>
+                <td><a href="/seller/{{ order.seller }}/table/{{ order.order_id }}">view order</a></td>
             </tr>
         {% endfor %}
 
