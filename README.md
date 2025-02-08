@@ -4,5 +4,5 @@
 - Maaz
 - Yoshi
 - Cris
-- Krish
+- Krish/
 - Kevin
