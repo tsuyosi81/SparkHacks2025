@@ -160,11 +160,11 @@ def update_order(name, number):
     target = f'/seller/{name}/table/{number}'
     return redirect(target)
 
-@app.get("/seller/<name>/create")
+@app.get("/seller/<name>/createOrder.html")
 def create_order(name):
     return render_template("createOrder.html")
 
-@app.post("/seller/<name>/create")
+@app.post("/seller/<name>/createOrder.html")
 def handle_order(name):
     print(request.form.to_dict())
 
