@@ -61,6 +61,13 @@ editPrice.onclick = ()=>{
 }
 
 document.getElementById("del-order").onclick = ()=>{
+    fetch('/seller/'+seller+'/table/'+order_id,  {
+        method: 'DELETE'
+    })
+    window.location.href = "/seller/"+seller+"/table"
+}
+
+document.getElementById("del-order").onclick = ()=>{
     fetch('/seller/' + seller + '/table/'+order_id,{
         method: "DELETE"
     })

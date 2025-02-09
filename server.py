@@ -97,6 +97,23 @@ def seller_table_number(number):
         print("Order not found.")
         return render_template("notfound.html")
     
+@app.delete('/seller/<name>/table/<number>')
+def delete_order(name, number):
+    print("got a delete")
+    conn = get_db()
+    cursor = conn.cursor()
+
+    cursor.execute('SELECT * FROM orders WHERE Order_id = ?', (number,))
+
+    order = cursor.fetchone()
+
+    cursor.execute('DELETE FROM orders WHERE Order_id = ?', (number,))
+
+    conn.commit()
+
+    target = f'/seller/{name}/table'
+    return redirect(target,code=302)
+
 @app.post('/seller/<name>/table/<number>')
 def update_order(name, number):
     conn = get_db()
@@ -143,10 +160,36 @@ def update_order(name, number):
     target = f'/seller/{name}/table/{number}'
     return redirect(target)
 
-@app.route('/seller/<name>/products/')
-def edit_products(name):
-    pass
+@app.get("/seller/<name>/create")
+def create_order(name):
+    return render_template("createOrder.html")
+
+@app.post("/seller/<name>/create")
+def handle_order(name):
+    print(request.form.to_dict())
+
+    order_time = datetime.now().isoformat()
+    conn = get_db()
+    cursor = conn.cursor()
+    price_string = str(float(request.form['price']))
+    new_price_string = (f"${float(price_string+"0000"):.2f}")
+    cursor.execute(
+        'INSERT INTO orders (Seller, Buyer, Amount, Product, Price, Time) VALUES (?, ?, ?, ?, ?, ?)', 
+        (name, request.form['buyer'], request.form['amount'] ,request.form['product'], new_price_string, order_time)
+    )
+
+    conn.commit()
+
+    oder_id_updated = cursor.lastrowid
+
+    print(f"New order created with Order ID: {oder_id_updated}")
 
 
+    target = f'/seller/{name}/table'
+    return redirect(target)
+
+@app.errorhandler(500)
+def handle_crash(e):
+    return render_template('error.html')
 conn.close()
 
