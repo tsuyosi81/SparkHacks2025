@@ -1,0 +1,174 @@
+/* Table Container */
+.table-container {
+    margin: 2rem auto;
+    padding: 1rem;
+    max-width: 1200px;
+    overflow-x: auto; /* Enable horizontal scrolling for small screens */
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--white);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Table Header */
+thead {
+    background-color: var(--primary);
+    color: var(--white);
+}
+
+th {
+    padding: 1rem;
+    text-align: left;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+}
+
+/* Table Body */
+tbody tr {
+    border-bottom: 1px solid var(--lighter);
+    transition: background-color 0.2s ease;
+}
+
+tbody tr:hover {
+    background-color: color-mix(in oklab, var(--primary), var(--white) 90%);
+}
+
+td {
+    padding: 1rem;
+    font-size: 0.875rem;
+    color: var(--darker);
+}
+
+/* Zebra Striping for Rows */
+tbody tr:nth-child(even) {
+    background-color: color-mix(in oklab, var(--primary), var(--white) 95%);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    th, td {
+        padding: 0.75rem;
+    }
+
+    .table-container {
+        padding: 0.5rem;
+    }
+}
+
+/* Order Details Container */
+.order-details-container {
+    margin: 2rem auto;
+    padding: 1rem;
+    max-width: 1200px;
+    text-align: center;
+}
+
+/* Order Title */
+.order-details-container h1 {
+    font-size: 2rem;
+    color: var(--darker);
+    margin-bottom: 1rem;
+}
+
+/* Return Link */
+.return-link {
+    display: inline-block;
+    margin-bottom: 2rem;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.return-link:hover {
+    color: var(--darker);
+}
+
+/* Edit Buttons */
+.edit-buttons {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.edit-buttons button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    background-color: var(--primary);
+    color: var(--white);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.edit-buttons button:hover {
+    background-color: var(--darker);
+}
+
+/* Table Styling (Reused from table.html) */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--white);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+thead {
+    background-color: var(--primary);
+    color: var(--white);
+}
+
+th, td {
+    padding: 1rem;
+    text-align: left;
+}
+
+th {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+}
+
+tbody tr {
+    border-bottom: 1px solid var(--lighter);
+    transition: background-color 0.2s ease;
+}
+
+tbody tr:hover {
+    background-color: color-mix(in oklab, var(--primary), var(--white) 90%);
+}
+
+td {
+    font-size: 0.875rem;
+    color: var(--darker);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .order-details-container {
+        padding: 0.5rem;
+    }
+
+    .edit-buttons {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .edit-buttons button {
+        width: 100%;
+    }
+}

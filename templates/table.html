@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../FrontEnd/home.css">
-    <link rel="stylesheet" href="../FrontEnd/setup.css">
-    <link rel="stylesheet" href="table.css"> <!-- Link to the new table.css -->
+    <link rel="stylesheet" href="/static/home.css">
+    <link rel="stylesheet" href="/static/setup.css">
+    <link rel="stylesheet" href="/static/table.css"> <!-- Link to the new table.css -->
     <title>Order Sync - Orders Table</title>
 </head>
 <body>
@@ -13,7 +13,7 @@
     <nav class="navbar">
         <div class="logo">[brand]</div>
         <div class="nav-links">
-            <a href="../FrontEnd/home.html" class="active">Home</a>
+            <a href="../templates/home.html" class="active">Home</a>
             <a href="#about-us">About Us</a>
             <a href="#why-us">What We Do & Why</a>
             <a href="../FrontEnd/createOrder.html">Create Order</a>
@@ -49,6 +49,7 @@
                         <td>{{ order.product }}</td>
                         <td>{{ order.price }}</td>
                         <td>{{ order.time }}</td>
+                        <td><a href="/seller/{{ order.seller }}/table/{{ order.order_id }}">view order</a></td>
                     </tr>
                 {% endfor %}
             </tbody>

@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="setup.css">
-    <link rel="stylesheet" href="home.css">
-    <title>Order Sync - Setup Complete</title>
+    <link rel="stylesheet" href="/static/setup.css">
+    <link rel="stylesheet" href="/static/home.css">
+    <title>Business Setup</title>
 </head>
 <body>
 <!-- Navigation Bar -->
@@ -35,10 +35,9 @@
 </div>
     <main class="main-wrapper">
         <div class="steps-wrapper">
-            <!-- Progress Steps -->
             <div class="steps">
                 <div class="step-container">
-                    <span class="step">1</span>
+                    <span class="step active">1</span>
                     <p class="step-text">Set Up Business</p>
                 </div>
                 <div class="step-container">
@@ -46,29 +45,28 @@
                     <p class="step-text">Choose Category</p>
                 </div>
                 <div class="step-container">
-                    <span class="step active">3</span>
+                    <span class="step">3</span>
                     <p class="step-text">Done</p>
                 </div>
                 <div class="progress-bar">
-                    <span class="progress" style="width: 100%;"></span>
+                    <span class="progress"></span>
                 </div>
             </div>
 
-            <!-- Completion Section -->
-            <div class="completion-section">
-                <img src="https://cdn-icons-png.flaticon.com/512/190/190411.png" alt="Checkmark" class="checkmark">
-                <h2>Done</h2>
-                <p>You're officially registered and ready to start your journey with your new business.</p>
-                <div class="buttons">
-                    <a href="SetUpCategory.html">
-                        <button class="btn btn-prev" id="btn-prev">Previous</button>
-                    </a>
-                    <a href="../../templates/table.html" class="btn btn-continue" id="btn-continue">Continue</a>
-                </div>
+            <!-- Business Name Input -->
+            <div class="business-setup">
+                <label for="business-name">Enter Your Business Name:</label>
+                <input type="text" id="business-name" placeholder="Your Business Name">
+            </div>
+
+            <div class="buttons">
+                <a href="SetUpCategory.html">
+                    <button class="btn btn-next" id="btn-next">Next</button>
+                </a>
             </div>
         </div>
     </main>
 
-    <script src="setup.js"></script>
+    <script src="/static/setup.js"></script>
 </body>
 </html>

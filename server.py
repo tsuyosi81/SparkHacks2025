@@ -46,15 +46,23 @@ def close_connection(exception):
 
 @app.route('/')
 def root_path():
-    return "<h1>root</h1>"
+    return render_template("home.html")
 
 @app.route('/home')
 def home():
-    return "<h1>home</h1>"
+    return render_template("home.html")
 
-@app.route('/seller/<name>/product')
-def seller_product(name):
-    return "<h1>"
+@app.route('/SetUpName.html')
+def setup_name():
+    return render_template("SetUpName.html")
+
+@app.route('/SetUpCategory.html')
+def setup_category():
+    return render_template("SetUpCategory.html")
+
+@app.route('/done.html')
+def done():
+    return render_template("done.html")
 
 @app.route('/seller/<name>/table') #:)
 def seller_table(name):
@@ -77,8 +85,8 @@ def seller_table(name):
         })
     return render_template("table.html",orders=orders_list)
     
-@app.get('/seller/<name>/table/<number>')       #:|
-def seller_table_number(number,name):
+@app.get('/seller/Alice/table/<number>')       #:|
+def seller_table_number(number):
     cursor = get_db().cursor()
     cursor.execute('SELECT * FROM orders WHERE Order_id = ?', (number,))
     idorder = cursor.fetchone()
